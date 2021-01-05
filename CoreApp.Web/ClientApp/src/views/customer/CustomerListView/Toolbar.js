@@ -4,12 +4,8 @@ import clsx from 'clsx';
 import
 {
   Box,
-  Card,
-  CardContent,
-  TextField,
-  InputAdornment,
-  SvgIcon,
   makeStyles,
+  Grid,
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
 
@@ -18,10 +14,10 @@ import { OkButton, ActionButton, CancelButton } from 'src/components/Buttons';
 const useStyles = makeStyles((theme) => ({
   root: {},
   importButton: {
-    marginCenter: theme.spacing(1)
+    marginCenter: theme.spacing(2)
   },
   exportButton: {
-    marginCenter: theme.spacing(1),
+    marginCenter: theme.spacing(2),
   }
 }));
 
@@ -37,15 +33,29 @@ const Toolbar = ({ className, ...rest }) => {
         display="flex"
         justifyContent="flex-end"
       >
-        <ActionButton variant="contained" className={classes.exportButton}>
-          rescan
-        </ActionButton>
-        <OkButton variant="contained" className={classes.exportButton}>
-          ok
-        </OkButton>
-        <CancelButton variant="contained">
-          cancel
-        </CancelButton>
+        <Grid container spacing={3}>
+          <Grid item >
+            <ActionButton variant="contained" className={classes.exportButton}>
+              rescan
+            </ActionButton>
+          </Grid>
+          
+          <Grid item >
+            <OkButton variant="contained" className={classes.exportButton}>
+              ok
+            </OkButton>
+          </Grid>
+
+          <Grid item>
+            <CancelButton variant="contained">
+              cancel
+            </CancelButton>
+          </Grid>
+        </Grid>
+        
+        
+        
+        
       </Box>
       
     </div>

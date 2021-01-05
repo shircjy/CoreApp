@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
@@ -10,7 +11,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from './Toolbar';
 import { ScanButton } from 'src/components/Buttons';
-
+import Image from "src/assets/apple.jpg";
 
 const styles = (theme) => ({
   root: {
@@ -25,6 +26,10 @@ const styles = (theme) => ({
   },
   ScanButton: {
     float:'right',
+  },
+  item: {
+    verticalAlign: 'center',
+    textAlign: 'center',
   }
 });
 
@@ -35,7 +40,6 @@ const DialogTitle = withStyles(styles)((props) => {
       <Typography variant="h6">{children}</Typography>
       {onClose ? (
         <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-          <CloseIcon />
         </IconButton>
       ) : null}
     </MuiDialogTitle>
@@ -81,17 +85,34 @@ export default function CustomizedDialogs() {
         </DialogTitle>
         
         <DialogContent dividers>
-          <div id="bot">
-          </div>
+          
           <Typography gutterBottom>
-            <p>Object Detected: </p>
-            <p>Confidence Level: </p>
-            <p>Match: </p>
+            <Grid container spacing={3}>
+              <Grid item align="left">
+                <img
+                  height="300px"
+                  src={Image}
+                />
+              </Grid>
+              <Box display="flex"
+                width={300} height={300}
+                alignItems="center"
+                justifyContent="center">
+              <Grid item >
+                <b><p>Object Detected: Apple </p>
+                <br /><p>Confidence Level: 88.53% </p>
+                <br /><p>Match: Yes </p></b>
+                </Grid>
+              </Box>
+            </Grid>
           </Typography>
+          </DialogContent>
+            <DialogContent dividers>
+          <Box display="flex" alignItems="center" justifyContent="center">
+            <Toolbar /> </Box>
+
+          
         </DialogContent>
-        <DialogActions>
-          <Toolbar />
-        </DialogActions>
       </Dialog>
     </div>
   );

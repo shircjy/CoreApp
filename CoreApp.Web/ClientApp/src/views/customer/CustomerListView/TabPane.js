@@ -10,6 +10,7 @@ import Popup from './Popup';
 import { Divider, Grid } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import { ScanButton } from 'src/components/Buttons';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -130,6 +131,7 @@ export default function TabsWrappedLabel() {
         <p>Fruit Detected: </p>
         <p>Weight Detected: </p>
         <p>Comment(s): </p>
+        
 
       </TabPanel>
     </div>
