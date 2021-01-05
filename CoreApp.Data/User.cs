@@ -8,6 +8,8 @@ namespace CoreApp.Data
         [Key]
         public Guid UserId { get; set; }
         [Required]
+        public Role RoleId { get; set; }
+        [Required]
         public string Password { get; set; }
         [Required]
         public string Salutation { get; set; }
@@ -20,6 +22,8 @@ namespace CoreApp.Data
         public string OfficeNumber { get; set; }
         [Required]
         public string Email { get; set; }
+        [Required]
+        public bool IsApproved { get; set; }
         [Required]
         public bool IsActive { get; set; }
         [Required]

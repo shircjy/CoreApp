@@ -9,8 +9,8 @@ namespace CoreApp.Data
         public Guid ExceptionId { get; set; }
         [Required]
         public ExceptionType ExceptionTypeId { get; set; }
-        [Required]
         public Operation OperationId { get; set; }
+        public Booking BookingId { get; set; }
         [Required]
         public bool IsActive { get; set; }
         [Required]

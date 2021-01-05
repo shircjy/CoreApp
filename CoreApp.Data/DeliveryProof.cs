@@ -1,21 +1,19 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace CoreApp.Data {
-    public class Item
+namespace CoreApp.Data 
+{
+    public class DeliveryProof
     {
         [Key]
-        public Guid ItemId { get; set; }
+        public Guid DeliveryProofId { get; set; }
+
         [Required]
-        public DateTime Expiry { get; set; }
+        public Delivery DeliveryId { get; set; }
         [Required]
-        public Unit UnitId { get; set; }
+        public string DeliverySignature { get; set; }
         [Required]
-        public string Batch { get; set; }
-        [Required]
-        public bool IsHazard { get; set; }
-        [Required]
-        public Origin OriginId { get; set; }
+        public string DeliveryPicture { get; set; }
         [Required]
         public bool IsActive { get; set; }
         [Required]
@@ -24,6 +22,5 @@ namespace CoreApp.Data {
         public string CreatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
-
     }
 }

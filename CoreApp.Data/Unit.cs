@@ -8,6 +8,8 @@ namespace CoreApp.Data
         [Key]
         public Guid UnitId { get; set; }
         [Required]
+        public ItemCategory ItemCategoryId { get; set; }
+        [Required]
         public string ItemName { get; set; }
         public string ItemDescription { get; set; }
         [Required]

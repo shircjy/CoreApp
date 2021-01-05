@@ -26,9 +26,9 @@ namespace CoreApp.Data
         [Required]
         public int Quantity { get; set; } 
         [Required]
-        public bool isActive { get; set; }
+        public bool IsActive { get; set; }
         [Required]
-        public Operation OperationId { get; set; }
+        public Delivery DeliveryId { get; set; }
         [Required]
         public DateTime CreatedDate { get; set; }
         [Required]

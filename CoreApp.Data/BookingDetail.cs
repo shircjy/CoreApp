@@ -10,13 +10,33 @@ namespace CoreApp.Data
         [Required]
         public Booking BookingId { get; set; }
         [Required]
-        public string BookingName { get; set; }
+        public DateTime BookingDate { get; set; }
         [Required]
-        public DateTime BookingCreated { get; set; }
+        public DateTime BookingTime { get; set; }
+        [Required]
+        public string BookingType { get; set; }
+        [Required]
+        public string BillOfLading { get; set; }
+        [Required]
+        public string ExportDeclarationNumber { get; set; }
+        [Required]
+        public string VoyageDetails { get; set; }
+        [Required]
+        [StringLength(56)]
+        public string CountryOrigin { get; set; }
+        [Required]
+        [StringLength(56)]
+        public string CountryFinalDestination { get; set; }
+        [Required]
+        public string PortLoading { get; set; }
+        [Required]
+        public string PortDischarge { get; set; }
+        [Required]
+        public DateTime DateDeparture { get; set; }
+        [Required]
+        public string FinalDestination { get; set; }
         [Required]
         public string BookingStatus { get; set; }
-        [Required]
-        public BookingSlot BookingSlotId { get; set; }
         [Required]
         public bool IsActive { get; set; }
         [Required]

@@ -14,7 +14,7 @@ namespace CoreApp.Data
         [Required]
         public Client ClientId {get; set;}
         [Required]
-        public Transporter TransporterId { get; set; }
+        public Shipper ShipperId { get; set; }
         [Required]
         public bool IsActive {get; set;}
         [Required]

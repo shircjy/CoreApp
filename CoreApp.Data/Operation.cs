@@ -13,15 +13,11 @@ namespace CoreApp.Data
         public OperationType OperationTypeId { get; set; }
         [Required]
         public OperationStatus OperationStatusId { get; set; }
-        [Required]
-        public Cargo CargoId { get; set; }
         public Shipment ShipmentId { get; set; }
         [Required]
-        public Employee EmployeeId { get; set; }
+        public User UserId { get; set; }
         [Required]
         public DateTime CompletionDate { get; set; }
-        [Required]
-        public Barcode BarcodeId { get; set; }
         [Required]
         public bool IsActive { get; set; }
         [Required]

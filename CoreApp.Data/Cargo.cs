@@ -12,8 +12,6 @@ namespace CoreApp.Data
         [Required]
         public Measurement MeasurementId { get; set; }
         [Required]
-        public Barcode BarcodeId { get; set; }
-        [Required]
         public PackagingType PackagingTypeId { get; set; }
         [Required]
         public Location LocationId { get; set; }

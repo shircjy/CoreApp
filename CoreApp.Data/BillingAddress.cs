@@ -39,7 +39,5 @@ namespace CoreApp.Data
         public string CreatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
-
-
     }
 }

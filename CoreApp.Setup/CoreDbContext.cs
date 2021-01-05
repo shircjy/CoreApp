@@ -2,7 +2,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using CoreApp.Data;
 using System.Reflection;
-using Module = CoreApp.Data.Module;
 
 namespace CoreApp.Setup
 {
@@ -11,7 +10,6 @@ namespace CoreApp.Setup
         public DbSet<Alert> Alerts { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<BookingDetail> BookingDetails { get; set; }
-        public DbSet<BookingSlot> BookingSlots { get; set; }
         public DbSet<Rule> Rules { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
         public DbSet<BillingAddress> BillingAddresses { get; set; }
@@ -34,15 +32,13 @@ namespace CoreApp.Setup
         public DbSet<LayoutObject> LayoutObjects { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Lot> Lots { get; set; }
-        public DbSet<Module> Modules { get; set; }
+        public DbSet<Data.Module> Modules { get; set; }
         public DbSet<LoadingBay> LoadingBays { get; set; }
         public DbSet<LoadingBayOccupancy> LoadingBayOccupancies { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Measurement> Measurements { get; set; }
         public DbSet<Platform> Platforms { get; set; }
         public DbSet<Notifyee> Notifyees { get; set; }
-        public DbSet<Page> Pages { get; set; }
-        public DbSet<PageAccess> PageAccesses { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Record> Records { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -51,19 +47,21 @@ namespace CoreApp.Setup
         public DbSet<Shipment> Shipments { get; set; }
         public DbSet<ShipmentContainer> ShipmentContainers { get; set; }
         public DbSet<ShipmentType> ShipmentTypes { get; set; }
+        public DbSet<Tag> Tags { get; set; }
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Origin> Origins { get; set; }
         public DbSet<Operation> Operations { get; set; }
+        public DbSet<CargoOperation> CargoOperations { get; set; }
         public DbSet<DeliveryNote> DeliveryNotes { get; set; }
         public DbSet<MovementLog> MovementLogs { get; set; }
         public DbSet<OperationType> OperationTypes { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
 
-        //Team 7 New Objects/Tables (Total 6 )
-        public DbSet<Barcode> Barcodes { get; set; }
+        //Team 7 New Objects/Tables (Total 5 )
         public DbSet<Unit> Units { get; set; }
         public DbSet<OperationItem> OperationItems { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<ItemCategory> ItemCategories { get; set; }
         //end
         public DbSet<CoreApp.Data.Exception> Exceptions { get; set; }
         
@@ -85,6 +83,13 @@ namespace CoreApp.Setup
         public DbSet<TransferOrder> TransferOrders { get; set; }
         // End of T12 DbSets
 
+        //Start of Workflow Stuff
+        public DbSet<OperationPhoto> OperationPhotos { get; set; }
+
+        //Start of Booking System DbSets
+        public DbSet<Shipper> Shippers { get; set; }
+        public DbSet<PublicHoliday> PublicHolidays { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Filename=../CoreDatabase.db", options =>
@@ -99,7 +104,6 @@ namespace CoreApp.Setup
             modelBuilder.Entity<Alert>().ToTable("Alerts");
             modelBuilder.Entity<Booking>().ToTable("Bookings");
             modelBuilder.Entity<BookingDetail>().ToTable("BookingDetails");
-            modelBuilder.Entity<BookingSlot>().ToTable("BookingSlots");
             modelBuilder.Entity<Rule>().ToTable("Rules");
             modelBuilder.Entity<Attachment>().ToTable("Attachments");
             modelBuilder.Entity<BillingAddress>().ToTable("BillingAddresses");
@@ -123,7 +127,7 @@ namespace CoreApp.Setup
             modelBuilder.Entity<LayoutObject>().ToTable("LayoutObjects");
             modelBuilder.Entity<Location>().ToTable("Locations");
             modelBuilder.Entity<Lot>().ToTable("Lots");
-            modelBuilder.Entity<Module>().ToTable("Modules");
+            modelBuilder.Entity<Data.Module>().ToTable("Modules");
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<Rack>().ToTable("Racks");
             modelBuilder.Entity<Restricted>().ToTable("Restricted");
@@ -133,28 +137,28 @@ namespace CoreApp.Setup
             modelBuilder.Entity<Measurement>().ToTable("Measurements");
             modelBuilder.Entity<Platform>().ToTable("Platforms");
             modelBuilder.Entity<Notifyee>().ToTable("Notifyees");
-            modelBuilder.Entity<Page>().ToTable("Pages");
-            modelBuilder.Entity<PageAccess>().ToTable("PageAccesses");
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<Record>().ToTable("Records");
             modelBuilder.Entity<Role>().ToTable("Roles");
             modelBuilder.Entity<Shipment>().ToTable("Shipments");
             modelBuilder.Entity<ShipmentContainer>().ToTable("ShipmentContainers");
             modelBuilder.Entity<ShipmentType>().ToTable("ShipmentTypes");
+            modelBuilder.Entity<Tag>().ToTable("Tags");
             modelBuilder.Entity<Task>().ToTable("Tasks");
             modelBuilder.Entity<MovementLog>().ToTable("MovementLogs");
             modelBuilder.Entity<Origin>().ToTable("Origins");
             modelBuilder.Entity<Operation>().ToTable("Operations");
+            modelBuilder.Entity<CargoOperation>().ToTable("CargoOperations");
             modelBuilder.Entity<OperationType>().ToTable("OperationTypes");
             modelBuilder.Entity<DeliveryNote>().ToTable("DeliveryNotes");
             modelBuilder.Entity<Warehouse>().ToTable("Warehouses");
 
-            //Team 7 New Objects/Tables (Total 6 )
-            modelBuilder.Entity<Barcode>().ToTable("Barcodes");
+            //Team 7 New Objects/Tables (Total 5 )
             modelBuilder.Entity<Category>().ToTable("Categories");
             modelBuilder.Entity<Unit>().ToTable("Units");
             modelBuilder.Entity<OperationItem>().ToTable("OperationItems");
             modelBuilder.Entity<Department>().ToTable("Departments");
+            modelBuilder.Entity<ItemCategory>().ToTable("ItemCategories");
             //end 
       
 
@@ -174,6 +178,11 @@ namespace CoreApp.Setup
             modelBuilder.Entity<Transfer>().ToTable("Transfers");
             modelBuilder.Entity<TransferOrder>().ToTable("TransferOrders");
 
+            //Booking System Models
+            modelBuilder.Entity<Shipper>().ToTable("Shippers");
+            modelBuilder.Entity<PublicHoliday>().ToTable("PublicHolidays");
+            //Workflow Models
+            modelBuilder.Entity<OperationPhoto>().ToTable("OperationPhotos");
         }
     }
 }

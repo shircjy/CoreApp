@@ -10,7 +10,9 @@ namespace CoreApp.Data
         [Required]
         public string CargoName { get; set; }
         [Required]
-        public string CargoDescription { get; set; }
+        public string Remarks { get; set; }
+        [Required]
+        public bool IsHazard { get; set; }
         [Required]
         public string StorageLocation { get; set; }
         [Required]

@@ -1,20 +1,15 @@
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace CoreApp.Data
 {
-    public class Employee
+    public class ItemCategory
     {
         [Key]
-        public Guid EmployeeId { get; set; }
+        public Guid ItemCategoryId { get; set; }
         [Required]
-        public Guid UserId { get; set; }
+        public string DisplayValue { get; set; }
         [Required]
-        public Guid DepartmentId { get; set; }
-        [Required]
-        public string PassNum { get; set; }
-        [Required]
-        public string PinNum { get; set; }
         public bool IsActive { get; set; }
         [Required]
         public DateTime CreatedDate { get; set; }

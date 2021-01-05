@@ -1,21 +1,16 @@
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace CoreApp.Data {
-    public class Item
+namespace CoreApp.Data
+{
+    public class OperationPhoto
     {
         [Key]
-        public Guid ItemId { get; set; }
+        public Guid OperationPhotoId { get; set; }
         [Required]
-        public DateTime Expiry { get; set; }
+        public string PhotoPath { get; set; }
         [Required]
-        public Unit UnitId { get; set; }
-        [Required]
-        public string Batch { get; set; }
-        [Required]
-        public bool IsHazard { get; set; }
-        [Required]
-        public Origin OriginId { get; set; }
+        public Operation OperationId { get; set; }
         [Required]
         public bool IsActive { get; set; }
         [Required]
@@ -24,6 +19,5 @@ namespace CoreApp.Data {
         public string CreatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
-
     }
 }

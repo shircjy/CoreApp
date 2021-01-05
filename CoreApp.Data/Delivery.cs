@@ -10,7 +10,7 @@ namespace CoreApp.Data
         [Required]
         public DateTime EstimatedReceiving { get; set; }
         [Required]
-        public DateTime estimatedReleasing { get; set; }
+        public DateTime EstimatedReleasing { get; set; }
         [Required]
         public Shipment ShipmentId { get; set; }
         [Required]

@@ -1,20 +1,20 @@
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace CoreApp.Data
 {
-    public class Employee
+    public class Shipper
     {
         [Key]
-        public Guid EmployeeId { get; set; }
+        public Guid ShipperId { get; set; }
         [Required]
-        public Guid UserId { get; set; }
+        public string Name { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Contact1 { get; set; }
+        public string Contact2 { get; set; }
+        public string Email { get; set; }
         [Required]
-        public Guid DepartmentId { get; set; }
-        [Required]
-        public string PassNum { get; set; }
-        [Required]
-        public string PinNum { get; set; }
         public bool IsActive { get; set; }
         [Required]
         public DateTime CreatedDate { get; set; }

@@ -1,21 +1,18 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace CoreApp.Data {
-    public class Item
+namespace CoreApp.Data
+{
+    public class Tag
     {
         [Key]
-        public Guid ItemId { get; set; }
+        public string TagId { get; set; }
         [Required]
-        public DateTime Expiry { get; set; }
+        public bool IsForklift { get; set; }
         [Required]
-        public Unit UnitId { get; set; }
-        [Required]
-        public string Batch { get; set; }
-        [Required]
-        public bool IsHazard { get; set; }
-        [Required]
-        public Origin OriginId { get; set; }
+        public bool isAssigned { get; set; }
+        public Forklift ForkliftId { get; set; }
+        public Cargo CargoId { get; set; }
         [Required]
         public bool IsActive { get; set; }
         [Required]
@@ -24,6 +21,5 @@ namespace CoreApp.Data {
         public string CreatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
-
     }
 }
