@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
+import RecentActorsIcon from '@material-ui/icons/RecentActors';
+import Image from "src/assets/rfid.PNG";
+import { RFIDButton } from 'src/components/Buttons';
 
 const styles = (theme) => ({
   root: {
@@ -20,6 +21,10 @@ const styles = (theme) => ({
     top: theme.spacing(1),
     color: theme.palette.grey[500],
   },
+  item: {
+    verticalAlign: 'top',
+    textAlign: 'center',
+  },  
 });
 
 const DialogTitle = withStyles(styles)((props) => {
@@ -42,13 +47,6 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
-const DialogActions = withStyles((theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(1),
-  },
-}))(MuiDialogActions);
-
 export default function CustomizedDialogs() {
   const [open, setOpen] = React.useState(false);
 
@@ -61,18 +59,34 @@ export default function CustomizedDialogs() {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        LOGIN USING RFID
-      </Button>
+      <RFIDButton variant="contained" style={{ maxWidth: '350px', maxHeight: '350px', minWidth: '350px', minHeight: '350px' }} onClick={handleClickOpen} fullWidth>
+        <div class="item">
+          <RecentActorsIcon style={{ maxWidth: '200px', maxHeight: '200px', minWidth: '200px', minHeight: '200px' }} />
+          <center>LOGIN USING RFID </center>
+        </div>
+      </RFIDButton>
+
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Scan RFID
+        <DialogTitle id="customized-dialog-title" onClose={handleClose} color="primary">
+          Login via Staff Card
         </DialogTitle>
+         
+
         <DialogContent dividers>
           <Typography gutterBottom>
-            Reading RFID ... 
+            <img
+              height="200px"
+              src={Image}
+              style={{
+                padding: "10px",
+                paddingLeft: "100px",
+                paddingRight: "100px",
+              }}
+            />
+            <center><b> Reading RFID ... </b></center>
           </Typography>
         </DialogContent>
+
       </Dialog>
     </div>
   );

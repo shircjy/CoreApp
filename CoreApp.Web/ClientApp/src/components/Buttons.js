@@ -35,3 +35,25 @@ export const ActionButton = withStyles((theme) => ({
     },
   },
 }))(Button);
+
+// Login w RFID
+export const RFIDButton = withStyles((theme) => ({
+  root: {
+    color: colors.common.white,
+    backgroundColor: colors.teal[400],
+    '&:hover': {
+      backgroundColor: colors.teal[800]
+    },
+  },
+}))(Button);
+
+// Issues
+export const IssuesButton = withStyles((theme) => ({
+  root: {
+    color: colors.common.white,
+    backgroundColor: colors.red[400],
+    '&:hover': {
+      backgroundColor: colors.red[800]
+    },
+  },
+}))(Button);

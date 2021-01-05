@@ -27,16 +27,7 @@ export default function CustomSeparator() {
 
   return (
     <div className={classes.root}>
-      <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
-        <Link
-          color="textPrimary"
-          href=""
-          onClick={handleClick}
-          aria-current="page"
-        >
-          Home
-        </Link>
-      </Breadcrumbs>
+      <h1> WorkStation 10 </h1>
       <Divider />
     </div>
   );

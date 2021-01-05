@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
-import * as Yup from 'yup';
-import { Formik } from 'formik';
 import {
-  Box,
   Button,
+  colors,
+  Grid,
+  Paper,
   Container,
-  Link,
-  TextField,
-  Typography,
   makeStyles
 } from '@material-ui/core';
 import Page from 'src/components/Page';
 import RFID from './RFID';
+import ManualLogin from './ManualLogin';
+import { Divider } from '@material-ui/core';
+import ErrorIcon from '@material-ui/icons/Error';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,121 +21,56 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3)
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
   }
 }));
 
 const LoginView = () => {
   const classes = useStyles();
-  const navigate = useNavigate();
 
   return (
     <Page
       className={classes.root}
       title="Login"
     >
-      <Box
-        display="flex"
-        flexDirection="column"
-        height="100%"
-        justifyContent="center"
-      >
-        <Container maxWidth="sm">
-          <Formik
-            initialValues={{
-              email: 'staff@cloudplus.com.sg',
-              password: 'p@as$w0rd'
-            }}
-            validationSchema={Yup.object().shape({
-              email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-              password: Yup.string().max(255).required('Password is required')
-            })}
-            onSubmit={() => {
-              navigate('/app/dashboard', { replace: true });
-            }}
-          >
-            {({
-              errors,
-              handleBlur,
-              handleChange,
-              handleSubmit,
-              isSubmitting,
-              touched,
-              values
-            }) => (
-              <form onSubmit={handleSubmit}>
-                <Box mb={3}>
-                  <Typography
-                    color="textPrimary"
-                    variant="h2"
-                  >
-                    Sign in
-                  </Typography>
-                </Box>
-                <Box
-                  mt={3}
-                  mb={3}
-                />
-                <TextField
-                  error={Boolean(touched.email && errors.email)}
-                  fullWidth
-                  helperText={touched.email && errors.email}
-                  label="Email Address"
-                  margin="normal"
-                  name="email"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  type="email"
-                  value={values.email}
-                  variant="outlined"
-                />
-                <TextField
-                  error={Boolean(touched.password && errors.password)}
-                  fullWidth
-                  helperText={touched.password && errors.password}
-                  label="Password"
-                  margin="normal"
-                  name="password"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  type="password"
-                  value={values.password}
-                  variant="outlined"
-                />
-                <Box my={2}>
-                  <Button
-                    color="primary"
-                    disabled={isSubmitting}
-                    fullWidth
-                    size="large"
-                    type="submit"
-                    variant="contained"
-                  >
-                    Sign in now
-                  </Button>
-                  </Box>
+      
+      <Container maxWidth="lg">
+        
+        <h1> WorkStation 10 </h1>
+        <Divider />
 
-                  <RFID />
+        <div className={classes.root}>
+          <Paper className={classes.paper}>
+          <Grid container spacing={3}>
+            <Grid item xs={1} align="center">
+                <ErrorIcon color='primary' style={{ maxWidth: '50px', maxHeight: '50px', minWidth: '50px', minHeight: '50px' }} />
+            </Grid>
+            <Grid item xs={10} align="left">
+              <p>Welcome to WorkStation 10!</p>
+              <p>Please login manually or tap your staff card on the RFID reader to login</p>
+              <p>For help and support, please click on the help icon.</p>
+            </Grid>
+            </Grid>
+            </Paper>
+        </div>
 
-                <Typography
-                  color="textSecondary"
-                  variant="body1"
-                >
-                  Don&apos;t have an account?
-                  {' '}
-                  <Link
-                    component={RouterLink}
-                    to="/register"
-                    variant="h6"
-                  >
-                    Sign up
-                  </Link>
-                  </Typography>
-                  
-              </form>
-            )}
-          </Formik>
+
+        <div className={classes.root}>
+          <Grid container spacing={3}>
+              <Grid item xs={6} align="center">
+              <ManualLogin />
+            </Grid>
+            <Grid item xs={6} align="center">
+               <RFID />
+            </Grid>
+          </Grid>
+        </div>
+      
         </Container>
-      </Box>
     </Page>
   );
 };

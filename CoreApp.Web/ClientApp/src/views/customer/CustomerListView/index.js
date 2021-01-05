@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
 
 const OrderListView = () => {
   const classes = useStyles();
-  const [customers] = useState(data);
 
   return (
     <Page
