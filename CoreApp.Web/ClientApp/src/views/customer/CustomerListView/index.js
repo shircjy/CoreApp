@@ -7,7 +7,7 @@ import {
 import Page from 'src/components/Page';
 import TabPane from './TabPane';
 import BreadCrumb from './BreadCrumb';
-import data from './data'; 
+
 
 const useStyles = makeStyles((theme) => ({
   root: {

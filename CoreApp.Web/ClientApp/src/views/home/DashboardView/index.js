@@ -7,6 +7,7 @@ import
   makeStyles,
   Box,
   Button,
+  Typography,
 } from '@material-ui/core';
 import Page from 'src/components/Page';
 import BreadCrumb from './BreadCrumb';
@@ -55,8 +56,8 @@ const Dashboard = () => {
         <div>
 
         <Grid container spacing={3}>
-          <Grid item sm={4}>
-              <Paper className={classes.paper}><ErrorIcon color='primary'/> You have <b><u>2</u></b> uncompleted orders </Paper>
+            <Grid item sm={4}>
+              <Typography> <Paper className={classes.paper}><ErrorIcon color='primary' /> You have <b><u>2</u></b> uncompleted orders </Paper> </Typography>
             </Grid>
           </Grid>
 

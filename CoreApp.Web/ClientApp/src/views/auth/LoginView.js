@@ -6,7 +6,8 @@ import {
   Grid,
   Paper,
   Container,
-  makeStyles
+  makeStyles,
+  Typography
 } from '@material-ui/core';
 import Page from 'src/components/Page';
 import RFID from './RFID';
@@ -39,13 +40,15 @@ const LoginView = () => {
     >
       
       <Container maxWidth="lg">
-        
-        <h1> WorkStation 10 </h1>
+        <Typography variant="h1" component="h2">
+          WorkStation 10
+        </Typography>
         <Divider />
 
+        <Typography>
         <div className={classes.root}>
           <Paper className={classes.paper}>
-          <Grid container spacing={3}>
+          <Grid container spacing={2}>
             <Grid item xs={1} align="center">
                 <ErrorIcon color='primary' style={{ maxWidth: '50px', maxHeight: '50px', minWidth: '50px', minHeight: '50px' }} />
             </Grid>
@@ -56,7 +59,7 @@ const LoginView = () => {
             </Grid>
             </Grid>
             </Paper>
-        </div>
+        </div> </Typography>
 
 
         <div className={classes.root}>

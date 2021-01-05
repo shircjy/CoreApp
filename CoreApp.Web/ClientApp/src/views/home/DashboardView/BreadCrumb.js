@@ -4,6 +4,7 @@ import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Link from '@material-ui/core/Link';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { Divider } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => createStyles({
   root: {
@@ -27,7 +28,9 @@ export default function CustomSeparator() {
 
   return (
     <div className={classes.root}>
-      <h1> WorkStation 10 </h1>
+      <Typography variant="h1" component="h2">
+        WorkStation 10
+        </Typography>
       <Divider />
     </div>
   );

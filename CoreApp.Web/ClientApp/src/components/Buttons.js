@@ -57,3 +57,14 @@ export const IssuesButton = withStyles((theme) => ({
     },
   },
 }))(Button);
+
+//Scan fruit
+export const ScanButton = withStyles((theme) => ({
+  root: {
+    color: colors.common.white,
+    backgroundColor: colors.teal[400],
+    '&:hover': {
+      backgroundColor: colors.teal[800]
+    },
+  },
+}))(Button);
