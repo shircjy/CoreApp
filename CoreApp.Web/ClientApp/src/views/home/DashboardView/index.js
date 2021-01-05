@@ -69,7 +69,7 @@ const Dashboard = () => {
           </Box>
 
         <Grid container spacing={3}>
-          <Grid item sm={6}>
+            <Grid item sm={5} align="center">
             
               <Button variant="contained" color="primary" style={{ maxWidth: '35px', maxHeight: '350px', minWidth: '350px', minHeight: '350px' }} fullWidth href='/app/customers'>
                 <div class="item">
@@ -79,7 +79,7 @@ const Dashboard = () => {
               </Button>
             </Grid>
 
-          <Grid item sm={6}>
+            <Grid item sm={5} align="center">
 
               <IssuesButton variant="contained" style={{ maxWidth: '350px', maxHeight: '350px', minWidth: '350px', minHeight: '350px' }} fullWidth>
                 <div class="item">
